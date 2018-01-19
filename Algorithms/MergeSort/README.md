@@ -35,4 +35,5 @@ Sites:
 	https://www.quora.com/When-is-merge-sort-preferred-over-quick-sort
 	https://www.geeksforgeeks.org/merge-sort/	
 	https://en.wikipedia.org/wiki/Merge_sort
+	https://www.youtube.com/watch?v=TzeBrDU-JaY
  
