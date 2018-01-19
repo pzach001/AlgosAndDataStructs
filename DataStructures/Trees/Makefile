@@ -1,6 +1,6 @@
 Tree: Tree.cpp
 
-	g++ Tree.cpp BST
+	g++ Tree.cpp 
 
 
 

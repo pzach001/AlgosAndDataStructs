@@ -1,2 +1,2 @@
 HashTable: Hashtable.cpp
-    g++ Hashtable.cpp
+	 g++ Hashtable.cpp
