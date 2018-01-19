@@ -13,7 +13,6 @@
 // CURRENT ISSUES:
 // The deletion isn't perfect. It deletes properly but only goes to the left side of deleted nodes subtree to do its algorithm. Because of this I realized that the Tree will be eventually lopsided.
 // This is something to work on later.
-#include "Tree.hpp"
 #include<iostream>
 using namespace std;
 
