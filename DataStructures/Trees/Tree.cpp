@@ -6,6 +6,13 @@
 //
 //https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.htmlfa
 
+
+//********
+//***********          THIS IS MY current program on a working Binary Search Tree.
+//***********
+// CURRENT ISSUES:
+// The deletion isn't perfect. It deletes properly but only goes to the left side of deleted nodes subtree to do its algorithm. Because of this I realized that the Tree will be eventually lopsided.
+// This is something to work on later.
 #include "Tree.hpp"
 #include<iostream>
 using namespace std;
@@ -16,12 +23,7 @@ struct TreeNode{
     TreeNode * LeftChild;
     TreeNode * RightChild;
 };
-
-class BST{
-    TreeNode* Head;
-    bool search(TreeNode * x , int val);
-    void setvalue(int x);
-};
+// shiftForRight is a helper function for the deletion function. It determines the greatest node less than the node that wants to be deleted.
 TreeNode* shiftforRight(TreeNode* x)
 {
     if(x->RightChild == NULL)
@@ -30,6 +32,7 @@ TreeNode* shiftforRight(TreeNode* x)
     }
     return shiftforRight(x->RightChild);
 }
+ // Simple Print function. This needs improvement. It just prints out the number when it gets there using Depth First Search.
 void printBST(TreeNode *x)
 {
     //using depth first search
@@ -44,7 +47,7 @@ void printBST(TreeNode *x)
     }
 }
 
-
+//simple BST search function
 TreeNode* search(TreeNode * x,int val )
 {
     if(x == NULL)
@@ -71,19 +74,20 @@ TreeNode* search(TreeNode * x,int val )
         return search(x->RightChild,val);
     }
 }
+
+//simple deletion function.
 bool deletion(TreeNode *x, int val)
 {
     TreeNode* d = search(x,val);
-    //either child is NULL or it is a leaf NODE
-
-    if(d->LeftChild == NULL && d->RightChild == NULL){
+  
+    if(d->LeftChild == NULL && d->RightChild == NULL){// IF THE NODE OF DELETION IS A LEAF NODE
         //LEAF
         cout << "value(" << val << ") is a leaf node.....deleting as is." << endl;
         d->parent->LeftChild  = NULL;
         d->parent->RightChild = NULL;
     }
-    if(d->LeftChild == NULL && d->RightChild != NULL){
-          //RIGHT CHILD IS THERE
+    if(d->LeftChild == NULL && d->RightChild != NULL){  //IF ONLY THE RIGHT CHILD EXISTS AT THE NODE OF DELETION CHOICE
+      
         cout << "value(" << val <<") has a right child..........connecting parent to right child " << endl;
         int childflag;
         if(d->parent->LeftChild == d){
@@ -100,8 +104,7 @@ bool deletion(TreeNode *x, int val)
         }
         d->RightChild->parent = d->parent;
     }
-    if(d->LeftChild != NULL && d->RightChild == NULL){
-        //LEFT CHILD IS THERE
+    if(d->LeftChild != NULL && d->RightChild == NULL){//IF ONLY THE LEFT CHILD EXISTS AT THE NODE OF DELETION CHOICE
         cout << "value(" << val <<")has a left child............connecting parent to left child " << endl;
         d->parent->LeftChild  = NULL;
         d->parent->RightChild = NULL;
@@ -120,13 +123,10 @@ bool deletion(TreeNode *x, int val)
         }
         d->LeftChild->parent = d->parent;
     }
-    if(d->LeftChild !=NULL && d->RightChild !=NULL){
-        //BOTH CHILDREN EXIST
-        //THIS NEEDS TO BE FIXED
-        //YOU 
-         cout << "value(" << val <<")has a two children............connecting parent to left child " << endl;
+    if(d->LeftChild !=NULL && d->RightChild !=NULL){ // BOTH CHILDREN EXIST
+        cout << "value(" << val <<")has a two children............connecting parent to left child " << endl;
         TreeNode* LargestChild = shiftforRight(d->LeftChild);
-        if(LargestChild == d->LeftChild)
+        if(LargestChild == d->LeftChild)// THIS CASE TAKES INTO ACCOUNT IF THE LEFTCHILD AFTER ALGORITHM HAS NO CHILDREN
         {
             d->Value = d->LeftChild->Value;
             d->LeftChild = NULL;
@@ -144,8 +144,7 @@ bool deletion(TreeNode *x, int val)
     
     
 }
-
-// to insert you want to take
+//INSERTION FUNCTION
 bool insert(TreeNode *x , int val)
 {
     if(x == NULL)
