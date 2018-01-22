@@ -10,8 +10,10 @@ How to run:
 
 What is MergeSort:
 
-	MergeSort is a very popular sorting algorithm that puts an array of number in ascending order through a divide and conquer method. 
-	The algorithm basically works by splitting up the array into subarrays until it reaches arrays of size 1. Then it continually takes those arrays and compares them and then joins them together. it continues this process until the          array is joined back together.
+	MergeSort is a very popular sorting algorithm that puts an array of number in ascending order through a divide and   conquer method. 
+	The algorithm basically works by splitting up the array into subarrays until it reaches arrays of size 1. 
+	Then it continually takes those arrays and compares them and then joins them together. 
+	it continues this process until the array is joined back together.
 
 
 Performance:
@@ -33,4 +35,5 @@ Sites:
 	https://www.quora.com/When-is-merge-sort-preferred-over-quick-sort
 	https://www.geeksforgeeks.org/merge-sort/	
 	https://en.wikipedia.org/wiki/Merge_sort
+	https://www.youtube.com/watch?v=TzeBrDU-JaY
  
